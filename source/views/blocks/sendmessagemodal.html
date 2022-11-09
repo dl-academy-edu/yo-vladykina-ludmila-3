@@ -1,0 +1,48 @@
+<div class="popup popup_send">
+    <h2 class="common-visually-hidden">Modal Window</h2>
+    <button class="popup_close popup_close_send-js">
+      <svg width="26" height="26">
+        <rect x="2.82861" width="32" height="4" rx="2" transform="rotate(45 2.82861 0)" fill="#828282"/>
+        <rect y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0 22.6289)" fill="#828282"/>
+      </svg>
+    </button>
+    <form name="sendMessageForm" class="form form_send-message-js">
+        <div class="form__fieldset form__fieldset_two-column">
+            <div class="form__column">
+                <label for="send_name" class="form__label">What is your name?<span class="form__required"> *</span></label>
+                <input id="send_name" class="form__input" type="text" name="name">
+            </div>
+            <div class="form__column">
+                <label for="send_subject" class="form__label">Message subject<span class="form__required"> *</span></label>
+                <input id="send_subject" class="form__input" type="text" name="subject">
+            </div>
+        </div>
+        <div class="form__fieldset form__fieldset_two-column">
+            <div class="form__column">
+                <label for="send_email" class="form__label">Your Email<span class="form__required"> *</span></label>
+                <input id="send_email" class="form__input" type="email" name="email">
+            </div>
+            <div class="form__column">
+                <label for="send_phone" class="form__label">Your mobile phone<span class="form__required"> *</span></label>
+                <input id="send_phone" class="form__input" type="tel" name="tel">
+            </div>
+        </div>
+        <div class="form__fieldset">
+            <label for="field_message" class="form__label">What do you want to discuss with me?</label>
+            <textarea id="field_message" class="form__input form__input_textarea" name="message" cols="30" rows="10"></textarea>
+        </div>
+        <div class="form__fieldset">
+            <input id="check_input-send" type="checkbox" class="form__checkbox_input" name="required">
+            <label for="check_input-send" class="form__checkbox_label" tabindex="0">Clicking on the button, you consent to the processing of your personal data.</label>
+        </div>
+        @@include('blocks/button.html', {
+            "text":"Send",
+            "type":"submit",
+            "class":"button button_form button-sendMessage-js",
+            "disabled":"disabled"
+        })
+        @@include('blocks/preloader.html', {
+            "class":"sendMessage-preloader-js"
+        })
+    </form>
+</div>

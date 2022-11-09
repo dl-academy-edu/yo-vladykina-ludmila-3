@@ -1,0 +1,33 @@
+<div class="popup popup_sign">
+    <h2 class="common-visually-hidden">Modal Window</h2>
+    <button class="popup_close popup_close_sign-js">
+      <svg width="26" height="26">
+        <rect x="2.82861" width="32" height="4" rx="2" transform="rotate(45 2.82861 0)" fill="#828282"/>
+        <rect y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0 22.6289)" fill="#828282"/>
+      </svg>
+    </button>
+    
+    <form class="form form_sign-js" name="signInForm">
+        <div class="form__fieldset">
+            <div class="form__column">
+                <label for="sign_email" class="form__label">Email<span class="form__required">*</span></label>
+                <input id="sign_email" class="form__input" type="email" name="email">
+            </div>
+        </div>
+        <div class="form__fieldset">    
+            <div class="form__column">
+                <label for="sign_password" class="form__label">Password<span class="form__required">*</span></label>   
+                <input id="sign_password" class="form__input" type="password" name="password">
+            </div>
+        </div>
+        
+        @@include('blocks/button.html', {
+            "text":"Log in",
+            "type":"submit",
+            "class":"button button_form button-signIn-js"
+        })
+        @@include('blocks/preloader.html', {
+            "class":"signIn-preloader-js"
+        })
+    </form>
+</div>

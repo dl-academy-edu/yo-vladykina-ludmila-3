@@ -1,0 +1,93 @@
+.button {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+  border: 2px solid #070707;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  color: #070707;
+  padding: 10px 20px;
+  text-align: center;
+  transition: 
+      color $transition-duration, 
+      background-color $transition-duration;
+
+  &:hover,
+  &:focus {
+      background-color: #070707;
+      color: #FFFFFF;
+  }
+  
+  &_link {
+      border: none;
+      background: 0 0;
+      color: #828282;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      transition: color $transition-duration;
+
+      &:hover,
+      &:focus {
+          background: 0 0;
+          color: #070707;
+      }
+
+      &_hidden {
+          display: none;
+      }
+  }
+
+  &_black {
+      background-color: #070707;
+      color: #FFFFFF;
+      padding: 10px 30px;
+      margin: 0 0 40px;
+
+      &:hover,
+      &:focus {
+          background-color: #FFFFFF;
+          color: #070707;
+      }
+  }
+
+  &_profile {
+      margin: 0 0 20px;
+  }
+
+  &_form {
+      
+      &:disabled {
+          border: 2px solid #E5E5E5;
+          background-color: #FFFFFF;
+          color: #E5E5E5;
+          transition: color $transition-duration, background-color $transition-duration;
+
+          &:hover {
+              border: 2px solid #828282;
+              color: #828282;
+          }
+      }
+  }
+
+  &_inValid {
+      background-color: #FFFFFF;
+      color: #EB3617;
+
+      &:hover,
+      &:focus {
+          background-color: #EB3617;
+          color: #FFFFFF;
+      }
+  }
+  &_valid {
+      background-color: #FFFFFF;
+      color: #03BC3C;
+
+      &:hover,
+      &:focus {
+          background-color: #03BC3C;
+          color: #FFFFFF;
+      }
+  }
+}

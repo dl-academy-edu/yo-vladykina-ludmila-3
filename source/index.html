@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <title>Lyudmila's blog</title>
+    <meta name="description" content="site about woman Lyudmila Vladykina">
+    <meta name="keywords" content="developer html...">    
+    <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    
+  </head>
+  <body>
+    @@include('blocks/header.html')
+
+    <main class="main container-back">
+      <section class="content container">
+        <div class="content__content"> 
+          <h1 class="content__title main__title">Lyudmila Vladykina</h1>
+          <p class="content__text">Future front-end developer 48 years old, Tolyatti</p>
+        </div> 
+        <img src="img/menu.svg" alt="" class="menu__button menu__button_js"> 
+      
+        @@include('blocks/picture-slider.html')
+
+            
+      </section>
+      <section class="about-me">
+        <h2 class="title">About me</h2>
+        <div class="about-me__content">
+          <ul class="about-me__list">
+            <li class="about-me__item">
+                <span class="about-me__text">
+                  Aliquam tortor molestie turpis est tristique. Congue diam orci amet quis semper ut. 
+                  Vitae aenean nibh facilisis urna, ultricies euismod nunc. 
+                  Commodo fringilla sit hendrerit consequat. Vel ac elit vel sagittis.
+                </span>
+                <span class="about-me__frame"></span>
+            </li>
+            <li class="about-me__item">
+                <span class="about-me__text">
+                  Tincidunt id quis pellentesque rutrum pretium. Egestas aliquam dictum ipsum nisl, sed pulvinar. 
+                  Commodo elit sed a fermentum non justo. Etiam platea consectetur.</span>
+                <span class="about-me__frame"></span>
+            </li>
+            <li class="about-me__item">
+                <span class="about-me__text">
+                  Quam ipsum odio tellus etiam aliquam dolor ut hendrerit. Felis risus nec vitae nunc ultricies placerat. 
+                  Nullam nec felis eu id dolor pellentesque tristique.</span>
+                <span class="about-me__frame"></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="skills container">
+        <h2 class="skills__title">Skills</h2>
+        <p class="skills__text">I work in such programs as</p>
+        <ul class="program__list">
+          <li class="program__item">
+            <img class="program__img" src="img/program/html-5.svg" alt="logo of HTML_5" width="79" height="90">
+            <p class="program__text">HTML 5</p>
+            <p class="program__load">
+              <span class="program__persent">85%</span>
+              <span class="program__loader" style="border-left: 118px solid #070707;"></span>
+            </p>              
+          </li>
+          <li class="program__item">
+            <img class="program__img" src="img/program/css-scss.svg" alt="logo of CSS SCSS" width="79" height="90">
+            <p class="program__text">CSS/SCSS</p>
+            <p class="program__load">
+              <span class="program__persent">55%</span>
+              <span class="program__loader" style="border-left: 74px solid #070707;"></span>
+            </p>
+          </li>
+          <li class="program__item">
+            <img class="program__img" src="img/program/javascript.svg" alt="logo of JavaScript" width="68" height="90">
+            <p class="program__text">JavaScript</p>
+            <p class="program__load">
+              <span class="program__persent">5%</span>
+              <span class="program__loader" style="border-left: 10px solid #070707;"></span>
+            </p>
+          </li>
+          <li class="program__item">
+            <img class="program__img" src="img/program/git-gitHub.svg" alt="logo of Git GitHub" width="90" height="90">
+            <p class="program__text">Git/GitHub</p>
+            <p class="program__load">
+              <span class="program__persent">15%</span>
+              <span class="program__loader" style="border-left: 21px solid #070707;"></span>
+            </p>
+          </li>
+          <li class="program__item">
+            <img class="program__img" src="img/program/figma.svg" alt="logo of Figma" width="60" height="90">
+            <p class="program__text">Figma</p>
+            <p class="program__load">
+              <span class="program__persent">80%</span>
+              <span class="program__loader" style="border-left: 115px solid #070707;"></span>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="portfolio">
+        <h2 class="portfolio__title">Portfolio</h2>
+        <div class="swiper container portfolio__swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/portfolio/main.jpg" alt="portfolio main page"></div>
+            <div class="swiper-slide"><img src="img/portfolio/catalog.jpg" alt="portfolio catalog page"></div>
+            <div class="swiper-slide"><img src="img/portfolio/toys.jpg" alt="portfolio toys page"></div>
+            <div class="swiper-slide"><img src="img/portfolio/blog.jpg" alt="portfolio blog page"></div>
+            <div class="swiper-slide"><img src="img/portfolio/animation.jpg" alt="portfolio animation page"></div>
+            <div class="swiper-slide"><img src="img/portfolio/grid.jpg" alt="portfolio grid page"></div>
+          </div>
+          <div class="swiper-button-prev portfolio__swiper-button"></div>
+          <div class="swiper-button-next portfolio__swiper-button"></div>
+          <div class="portfolio__banner">
+            <a href="https://dlacademy.ru/" class="portfolio__link" target="_blank" rel="nofollow">Learning site for DL Academy courses</a>
+            <p class="portfolio__description">A simple multi-page static site. The design layout was in Figma. HTML and CSS were used. The site is responsive and cross-browser, but without adding interactivity via JavaScript.</p>
+          </div>
+        </div>  
+      </section>
+
+     
+
+    </main>
+
+    @@include('blocks/footer.html')
+    @@include('blocks/overlay.html')
+    @@include('blocks/signmodal.html')
+    @@include('blocks/registermodal.html')
+    @@include('blocks/sendmessagemodal.html')
+    @@include('blocks/button-fixed.html')
+
+    
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

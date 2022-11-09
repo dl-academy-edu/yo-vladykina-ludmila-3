@@ -1,0 +1,69 @@
+<header class="header-main container-back">
+  <div class="header container">  
+    <div class="header__content">
+      <a class="header__link" href="/">Home</a>        
+      <nav class="header__nav">
+          <ul class="underline header__list">           
+            <li class="header__item"><a class="button button_link" href="my-blog.html">My blog</a></li>
+            <li class="header__item toProfile-js common-hidden header-js"><a class="button button_link" href="profile.html">My Profile</a></li>
+            <li class="header__item signIn-js header-js">
+              
+              @@include('blocks/button.html', {
+                "class":"button button_link button_sign-js",
+                "type":"button",
+                "text": "Sign in",
+                "form":"sign"
+              })
+            </li>
+            <li class="header__item register-js header-js">              
+              @@include('blocks/button.html', {
+                "class":"button button_link button_register-js",
+                "type":"button",
+                "text": "Register",
+                "form":"register"
+              })
+            </li>
+          </ul>                     
+      </nav>
+    </div>
+  </div>
+    
+  
+  
+  <div class="mobile-header">
+      <div class="mobile-header__content">  
+          <div class="mobile-header__cap">                            
+              <img src="img/close.svg" alt="" class="mobile-header__close mobile-header__close_js">          
+          </div>      
+          <nav class="mobile-header__nav">
+              <ul class="underline mobile-header__list">                    
+                <li class="mobile-header__item"><a href="/">Home</a></li>
+                <li class="mobile-header__item"><a class="button button_link" href="my-blog.html">My blog</a></li>
+                <li class="toProfile-js common-hidden header-js"><a class="button button_link" href="profile.html">My Profile</a></li>
+                <li class="mobile-header__item signIn-js header-js">
+                  
+                  @@include('blocks/button.html', {
+                    "class":"button button_link button_sign-js",
+                    "type":"button",
+                    "text": "Sign in",
+                    "form":"sign"
+                  })
+                </li>
+                <li class="mobile-header__item register-js header-js">
+                 
+                    @@include('blocks/button.html', {
+                      "class":"button button_link button_register-js",
+                      "type":"button",
+                      "text": "Register",
+                      "form":"register"
+                    })
+                </li>
+              </ul>
+          </nav>
+      </div>     
+  </div>    
+   
+   
+
+   
+</header>
