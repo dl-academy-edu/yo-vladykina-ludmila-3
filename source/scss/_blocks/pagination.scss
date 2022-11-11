@@ -1,0 +1,35 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;    
+
+    &__button {
+        background-color: transparent;
+        border: none; 
+    
+        &:hover, 
+        &:focus {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        &_prev-js:disabled,
+        &_next-js:disabled {
+            opacity: 0.1;
+        }
+    }
+
+    &__page {
+        font-weight: 700;
+        display: flex;
+        gap: 10px;
+    }
+
+    &__link {
+        color: #E5E5E5;
+        &_active {
+            color: #070707;
+        }
+    }
+}

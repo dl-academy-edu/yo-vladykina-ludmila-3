@@ -1,0 +1,58 @@
+<div class="popup popup_register">
+    <h2 class="common-visually-hidden">Modal Window</h2>
+    <button class="popup_close popup_close_register-js">
+      <svg width="26" height="26">
+        <rect x="2.82861" width="32" height="4" rx="2" transform="rotate(45 2.82861 0)" fill="#828282"/>
+        <rect y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0 22.6289)" fill="#828282"/>
+      </svg>
+    </button>
+    <form name="registerForm" class="form form_register-js">
+        <div class="form__fieldset form__column_large">
+            <label for="register_email" class="form__label">Email<span class="form__required"> *</span></label>
+            <input id="register_email" class="form__input" type="email" name="email" required>
+        </div>
+        <div class="form__fieldset form__fieldset_two-column">
+            <div class="form__column">
+                <label for="register_name" class="form__label">Name<span class="form__required"> *</span></label>
+                <input id="register_name" class="form__input" type="text" name="name">
+            </div>
+            <div class="form__column">
+                <label for="register_surname" class="form__label">Surname<span class="form__required"> *</span></label>
+                <input id="register_surname" class="form__input" type="text" name="surname">
+            </div>
+        </div>
+        <div class="form__fieldset form__fieldset_two-column">
+            <div class="form__column">
+                <label for="register_password" class="form__label">Password<span class="form__required"> *</span></label>
+                <input id="register_password" class="form__input" type="password" name="password">
+            </div>
+            <div class="form__column">
+                <label for="register_repeat-password" class="form__label">Repeat password<span class="form__required"> *</span></label>
+                <input id="register_repeat-password" class="form__input" type="password" name="passwordRepeat">
+            </div>
+        </div>
+        <div class="form__fieldset form__fieldset_two-column">
+            <div class="form__column">
+                <label for="register_location" class="form__label">Location<span class="form__required"> *</span></label>
+                <input id="register_location" class="form__input" type="text" name="location">
+            </div>
+            <div class="form__column">
+                <label for="register_age" class="form__label">Age<span class="form__required"> *</span></label>
+                <input id="register_age" class="form__input" type="number" name="age">
+            </div>
+        </div>
+        <div class="form__fieldset">
+            <input id="check_input" type="checkbox" class="form__checkbox_input" name="required">
+            <label for="check_input" class="form__checkbox_label" tabindex="0">Clicking on the button, you consent to the processing of your personal data.</label>
+        </div>
+        @@include('blocks/button.html', {
+            "text":"Sign up",
+            "type":"submit",
+            "class":"button button_form button-reg-js",
+            "disabled":"disabled"
+        })
+        @@include('blocks/preloader.html', {
+            "class":"register-preloader-js"
+        })
+    </form>
+</div>

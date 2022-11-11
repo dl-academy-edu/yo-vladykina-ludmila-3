@@ -1,0 +1,126 @@
+<section class="filter container">
+    <h2 class="common-visually-hidden">Blog filter</h2>
+    <form action="#" class="filter__form" name="filter">
+        <div class="filter__wrapper">
+            <fieldset class="filter__fieldset tags">
+                <legend class="filter__legend">Tags</legend>
+                <ul class="filter__tags common-no-list"></ul>
+                </ul>
+            </fieldset>
+            <fieldset class="filter__fieldset views">
+                <legend class="filter__legend">Views</legend>
+                <ul class="common-no-list">
+                    <li>
+                        <label for="views-1" class="filter__label">
+                            <input id="views-1" class="filter__input" type="radio" name="views" value="100-500">
+                            <span class="filter__input-radio"></span>
+                            100-500
+                        </label>
+                    </li>
+                    <li>
+                        <label for="views-2" class="filter__label">
+                            <input id="views-2" class="filter__input" type="radio" name="views" value="500-1000" checked>
+                            <span class="filter__input-radio"></span>
+                            500-1000
+                        </label>
+                    </li>
+                    <li>
+                        <label for="views-3"  class="filter__label">
+                            <input id="views-3"  class="filter__input" type="radio" name="views" value="1000-2000">
+                            <span class="filter__input-radio"></span>
+                            1000-2000
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset class="filter__fieldset comments">
+                <legend class="filter__legend">Comments</legend>
+                <ul class="common-no-list ">
+                    <li>
+                        <label for="comments-1"  class="filter__label">
+                            <input id="comments-1" class="filter__input" type="checkbox" name="comments" value="0-0" checked>
+                            <span class="filter__input-checkbox filter__input-checkbox_black"></span>
+                            0
+                        </label>
+                    </li>
+                    <li>
+                        <label for="comments-2" class="filter__label">
+                            <input id="comments-2" class="filter__input" type="checkbox" name="comments" value="0-1">
+                            <span class="filter__input-checkbox filter__input-checkbox_black"></span>
+                            0-1
+                        </label>
+                    </li>
+                    <li>
+                        <label for="comments-3" class="filter__label">
+                            <input id="comments-3" class="filter__input" type="checkbox" name="comments" value="1-50">
+                            <span class="filter__input-checkbox filter__input-checkbox_black"></span>
+                            1-50
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset class="filter__fieldset show">
+                <legend class="filter__legend">How show?</legend>
+                <ul class="common-no-list ">
+                    <li>
+                        <label for="show-1" class="filter__label">
+                            <input id="show-1" class="filter__input" type="radio" name="show" value="5" checked>
+                            <span class="filter__input-radio"></span>
+                            show 5
+                        </label>
+                    </li>
+                    <li>
+                        <label for="show-2" class="filter__label">
+                            <input id="show-2" class="filter__input" type="radio" name="show" value="10">
+                            <span class="filter__input-radio"></span>
+                            show 10
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset class="filter__fieldset sort">
+                <legend class="filter__legend">Sort by</legend>
+                <ul class="common-no-list ">
+                    <li>
+                        <label for="sort-1" class="filter__label">
+                            <input id="sort-1" class="filter__input" type="radio" name="sort" value="date" checked>
+                            <span class="filter__input-radio"></span>
+                            date
+                        </label>
+                    </li>
+                    <li>
+                        <label for="sort-2" class="filter__label">
+                            <input id="sort-2" class="filter__input" type="radio" name="sort" value="title">
+                            <span class="filter__input-radio"></span>
+                            title
+                        </label>
+                    </li>
+                    <li>
+                        <label for="sort-3" class="filter__label">
+                            <input id="sort-3" class="filter__input" type="radio" name="sort" value="views">
+                            <span class="filter__input-radio"></span>
+                            views
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset class="filter__fieldset reset">
+                <legend class="filter__legend filter__legend_wrapper">reset form</legend>
+                @@include('blocks/button.html', {
+                    "text":"Reset",
+                    "type":"reset",
+                    "class":"button "
+                })
+            </fieldset>
+        </div>
+        <div class="filter__wrapper filter__wrapper_footer">
+            <label for="filter_search" class="filter__label common-visually-hidden">search</label>
+            <input id="filter_search" name="searchFilter" type="search" class="filter__input-search">
+            @@include('blocks/button.html', {
+                "text":"Search",
+                "type":"submit",
+                "class":"button submit"
+            })
+        </div>
+    </form>
+</section>

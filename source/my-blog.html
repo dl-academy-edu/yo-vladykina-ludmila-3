@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="desciption" content="page my blog about animals our small brouthers">
+    <meta name="keywords" content="blog, animals">     
+    <link rel="shortcut icon" href="img/favicon.ico">    
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>My Blog</title>
+  </head>
+
+  <body>
+   
+    @@include('blocks/header.html')
+
+    <main class="blog container-back">   
+        <h1 class="main__title blog__title container">My blog</h1> 
+        <img src="img/menu.svg" alt="" class="menu__button menu__button_js">    
+        
+        @@include('blocks/filter.html')
+        @@include('blocks/posts.html')       
+
+        @@include('blocks/pagination.html') 
+        @@include('blocks/preloader.html', {
+          "class": "filter-preloader-js"
+        })     
+       
+
+    </main>
+   
+    @@include('blocks/footer.html')
+    @@include('blocks/button-fixed.html')
+
+   
+
+    <script src="js/menu.js"></script>
+    <script src="js/blog.js"></script>
+   
+  </body>
+</html>
