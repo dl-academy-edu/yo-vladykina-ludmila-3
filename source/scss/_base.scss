@@ -169,7 +169,7 @@ input[type="button"], input[type="submit"], button {
         }
 
         &_inValid {
-            border: 2px solid  #EB3617;
+            border: 2px solid #EB3617;
         }
 
         &_valid,
@@ -292,7 +292,7 @@ input[type="button"], input[type="submit"], button {
                
             }        
             
-        }
+        }        
     }
 
     &__column {
@@ -315,6 +315,7 @@ input[type="button"], input[type="submit"], button {
                 margin-left: 0px;           
             }
         }
+        
     }
 
     &__required {

@@ -9,7 +9,7 @@
     <form name="changeDataForm" class="form form_change-data-js">
         <div class="form__fieldset form__column_large">
             <label for="change_email" class="form__label">Email</label>
-            <input id="change_email" class="form__input form__input-email" type="email" name="email">
+            <input id="change_email" class="form__input" type="email" name="email">
         </div>
         <div class="form__fieldset form__fieldset_two-column">
             <div class="form__column">
@@ -28,7 +28,7 @@
             </div>
             <div class="form__column">
                 <label for="change_age" class="form__label">Age</label>
-                <input id="change_age" class="form__input form__input_age" type="number" name="age">
+                <input id="change_age" class="form__input" type="number" name="age">
             </div>
         </div>
         <div class="form__fieldset">
@@ -43,7 +43,7 @@
                     <span class="innerText">Choose a file...</span>
                 </label>
                 <input id="change_profile-img" class="form__input common-visually-hidden" type="file" name="avatar">
-            </div>
+            </div>            
         </div>
         @@include('blocks/button.html', {
             "text":"Submit changes",

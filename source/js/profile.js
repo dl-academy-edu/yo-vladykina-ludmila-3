@@ -168,8 +168,38 @@ function sendRequestFetch({ url, method, body, headers }) {
         method,
         body
     }
-    return fetch(server + url, settings);
+    return fetch(server + url + '?v=1.0.0.', settings);
 }
+
+function errorCreate(errors, form) {
+    if(Object.keys(errors).length) {
+        Object.keys(errors).forEach(key => {
+            const messageError = errors[key];
+            const input = form.elements[key];
+            setError(input, messageError);
+            console.log(messageError, input)
+        })
+        return;
+    }
+}
+
+function setError(input, errorMessage) {
+    const error = errorTextCreator(errorMessage);
+    input.classList.add('form__input_inValid');
+    input.insertAdjacentElement('afterend', error);
+    input.addEventListener('input', function() {
+        error.remove();
+        input.classList.remove('form__input_inValid');
+    }, {once: true});
+}
+  
+function errorTextCreator(message) {
+    let messageError = document.createElement('div');
+    messageError.classList.add('form__alert-warning');
+    messageError.innerText = message;
+    return messageError;
+}
+
 
 //  Открытие прелоадера
 function openPreloader(preloader) {
@@ -470,44 +500,12 @@ buttonDeleteAccount.addEventListener('click', () => {
 
 
 //Функция теста email
-function emailValid(email) {   
-    let error = 0
-    let input = form.querySelectorAll('.form__input-email')
-    if (input) {
-        input.forEach(el => {
-            if (el.value !== '') {
-            function emailValid(email) {
-                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(String(email.value).toLowerCase());  
-            }
-            let errorEmail = emailValid(el)
-            if (errorEmail === false) {
-                el.classList.add('custom-input_bad')
-                el.insertAdjacentHTML('afterend', '<p class="input-caption input-caption_bad">Please enter a valid email address (your entry is not in the format "somebody@example.com")</p>')
-                error++
-            }
-            }
-        })
-    }
-    return error
-};   
+function emailValid(email) {
+	return email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i);
+};
 
 //Функция проверки пароля
 function passwordValid(password) {
     return password.length > 6;
 };
-
-// Функция проверки возраста
-function ageValidation (form) {
-    let error = 0
-    let input = form.querySelector('.form__input-age')
-    if (input.value !== '') {
-        if (input.value < 20) {
-            input.classList.add('custom-input_bad')
-            input.insertAdjacentHTML('afterend', '<p class="input-caption input-caption_bad">Your age is under 20</p>')
-            error++
-        }
-    }
-    return error
-}
 
