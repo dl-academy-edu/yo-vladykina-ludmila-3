@@ -1,4 +1,3 @@
-
 // фильтр
 (function() {
     const MONTHS = ["Январь", "Февраль", "Март", "Апр.", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
@@ -350,44 +349,6 @@
 
         getData(getParamsFromLocation());
     }
-})();
-
-
-//  Открытие прелоадера
-function openPreloader(preloader) {
-    preloader.style.display = "flex";
-}
-
-// Закрытие прелоадера
-function closePreloader(preloader) {
-    if(preloader.style.display = "flex") {
-        preloader.style.display = "none";
-    }
-
-}
-
-// button-fixed
-
-(function buttonScrollFixed() {
-    let buttonScroll = document.querySelector(".button-scroll_js");
-
-    if (buttonScroll) {
-        
-        buttonScroll.addEventListener('click', function () {
-            window.scrollTo({ 
-                top: 0, 
-                behavior: "smooth" 
-            });
-        });
-        
-        window.addEventListener('scroll', function () {
-            if (window.pageYOffset > 1500) {
-            buttonScroll.classList.remove("button-fixed__hidden");
-            } else {
-            buttonScroll.classList.add("button-fixed__hidden");
-            }
-        });
-    };
 })();
 
 

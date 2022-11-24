@@ -1,25 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="desciption" content="page my profile">
     <meta name="keywords" content="profile...">     
     <link rel="shortcut icon" href="img/favicon.ico">    
     <link rel="stylesheet" href="css/style.min.css">
-    <title>My Profile</title>
+    <title>My profile</title>
   </head>
 
   <body>
    
     @@include('blocks/header.html')
 
-    <main class="profile">
+    <main class="container-back">
+      <section class="profile container"> 
+        <div>
+          <h1 class="profile__title">My profile</h1> 
+          <img src="img/menu.svg" alt="" class="menu__button menu__button_js">                           
+          <div class="profile__info">                                 
+            <div class="profile__img-container user-img-js">
+            </div>
+            <div class="profile__data">
+                <ul class="profile__items common-no-list">
+                    <li class="profile__item">Name: <span class="profile__wrapper user-name-js"></span></li>
+                    <li class="profile__item">Surname: <span class="profile__wrapper user-surname-js"></span></li>
+                    <li class="profile__item">Email: <span class="profile__wrapper user-email-js"></span></li>
+                    <li class="profile__item">Password: <span class="profile__wrapper user-password-js"></span></li>
+                    <li class="profile__item">Location: <span class="profile__wrapper user-location-js"></span></li>
+                    <li class="profile__item">Age: <span class="profile__wrapper user-age-js"></span></li>
+                </ul>
+                @@include('blocks/button.html', {
+                    "class":"button button_profile button_change-pass-js",
+                    "type":"button",
+                    "text": "Change password"
+                })
+                @@include('blocks/button.html', {
+                    "class":"button button_profile button_change-data-js",
+                    "type":"button",
+                    "text": "Change other data"
+                })
+                @@include('blocks/button.html', {
+                    "class":"button button_profile button-delete-js",
+                    "type":"button",
+                    "text": "Delete account"
+                })
+                @@include('blocks/button.html', {
+                  "class":"button button-signOut-js",
+                  "type":"button",
+                  "text": "Sign Out"
+              })
+            </div>
+          </div>
+        </div> 
        
-
+        @@include('blocks/preloader.html', {
+          "class": "main-preloader-js"
+        })
+      </section>
     </main>
 
+    @@include('blocks/overlay.html')
+    @@include('blocks/signmodal.html')
+    @@include('blocks/registermodal.html')
+    @@include('blocks/changepasswordmodal.html')
+    @@include('blocks/changedatamodal.html')
+
    
-   
+    <script src="js/menu.js"></script>     
+    <script src="js/profile.js"></script>  
 </body>
 </html>

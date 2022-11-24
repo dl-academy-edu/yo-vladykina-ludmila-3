@@ -109,6 +109,18 @@ input[type="button"], input[type="submit"], button {
         top: -1px;
         padding: 0;
 
+        @media (max-width: 780px) {
+            right: 1px;
+            top: -35px;
+        }
+        @media (max-width: 680px) {
+            right: 308px;
+            top: -16px; 
+           
+        }    
+
+        
+
         &:hover rect,
         &:focus rect {
             background-color: none;
@@ -126,7 +138,12 @@ input[type="button"], input[type="submit"], button {
     border: 2px solid #070707;
     padding: 40px;
     background-color: #FFFFFF;
-
+    @media (max-width: 680px) {                     
+        max-width: 320px;
+        border: 2px solid #FFFFFF;
+        
+       
+    } 
     &__input {
         width: 100%;       
         border: 2px solid #E5E5E5;
@@ -141,14 +158,18 @@ input[type="button"], input[type="submit"], button {
         &:focus {
             border: 2px solid #070707;
         }
-
+        
         &_textarea {
             height: 150px;
             resize: none;
+            @media (max-width: 680px) {
+                max-width: 260px;
+                        
+            }
         }
 
         &_inValid {
-            border: 2px solid  #EB3617;
+            border: 2px solid #EB3617;
         }
 
         &_valid,
@@ -259,22 +280,42 @@ input[type="button"], input[type="submit"], button {
       padding: 0;      
       margin-right: 30px;
       margin-bottom: 20px;
-
+      
         &_two-column {
             display: flex;
-            justify-content: space-between;             
-        }
+            justify-content: space-between;   
+
+            @media (max-width: 680px) {
+                flex-direction: column;               
+                max-width: 258px;
+                margin-left: 0px;  
+               
+            }        
+            
+        }        
     }
 
     &__column {
         max-width: 260px;
-        width: 100%;
-        
+        width: 100%;    
 
         &_large {
             max-width: 565px;
-            width: 100%;            
+            width: 100%; 
+
+            @media (max-width: 680px) {
+                max-width: 258px;
+                margin-left: 0px;           
+            }
+           
+            
         }
+        &_file {
+            @media (max-width: 680px) {           
+                margin-left: 0px;           
+            }
+        }
+        
     }
 
     &__required {
@@ -295,5 +336,4 @@ input[type="button"], input[type="submit"], button {
         margin: 10px 0 0 0;
     }
 }
-
 

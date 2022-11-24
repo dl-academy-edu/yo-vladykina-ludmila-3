@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link rel="shortcut icon" href="img/favicon.ico">    
+        <link rel="stylesheet" href="css/style.min.css">
+        <title>Something went wrong</title>
+    </head>
+    
+  <body>
+    @@include('blocks/header.html')
+    <main class="container">
+        <section class="error-404">
+            <h1 class="error-404__title">Something went wrong</h1>
+            <a href="/" class="button button_black error-404__link">Go back to the main page</a>
+            <img src="img/404.svg" alt="Something went wrong, Go back to the main page" width="512" height="226" class="error-404__img">
+        </section>
+    </main>
+    @@include('blocks/footer.html')
+    @@include('blocks/overlay.html')
+    @@include('blocks/signmodal.html')
+    @@include('blocks/registermodal.html')   
+    <script src="js/app.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/profile.js"></script>
+
+  </body>
+  
+</html>

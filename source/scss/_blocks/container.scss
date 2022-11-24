@@ -2,13 +2,14 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto; 
-  background-color: #FFFFFF; 
+  background-color: #FFFFFF;  
 }
 
 .container {
   max-width: 1040px;
   padding: 0 20px;
   margin: 0 auto; 
+  
 
   @media (max-width: 1265px) {
     padding: 0 8%;
@@ -18,3 +19,4 @@
     padding: 0 5%;
   }
 }
+

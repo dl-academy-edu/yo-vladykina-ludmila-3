@@ -82,7 +82,7 @@
       border: 2.5px solid #070707;
       border-bottom: 0;
 
-      @media (max-width: 500px) {
+      @media (max-width: 530px) {
         max-width: 279px;
       }
       
@@ -125,7 +125,7 @@
         height: 2.5px;
         background: #070707;
 
-        @media (max-width: 500px) {
+        @media (max-width: 530px) {
           top: 105%;
         }
       }
@@ -186,45 +186,110 @@
   
     &__item {
       display: flex;
-      width: 180px;      
+      max-width: 180px;      
       flex-direction: column;
       text-align: center;
+      padding: 5px 5px;
+      
 
-      @media (max-width: 858px) {
-        width: 147px; 
+      @media (max-width: 905px) {
+        max-width: 147px; 
       }
 
-      @media (max-width: 375px) {
+      @media (max-width: 780px) {
         max-width: 130px;
-      }
+      }    
 
-    }
+    } 
 
     &__img {
-      width: 130px;
-      height: 128px;
-      margin: 0;
+      max-width: 130px;
+      height: 128px;      
       margin-top: 50px;
+      margin-left: 45px;
+      margin-right: 20px;
     
     }
   
     &__load {
       display: flex;
-      align-items: center;
+      align-items: center;           
     }
   
     &__persent {
       font-size: 14px;
-      margin-right: 10px;
-  
+      margin-right: 10px;      
     }
   
     &__loader {
       width: 100%;
       background-color: #E5E5E5;
       height: 9px;
+     
     }
   }
+  
+  
+  @media (max-width: 780px) {
+    .program__item:nth-child(5) {
+      margin-right: 305px;
+    }
+  }    
+
+  @media (max-width: 740px) {
+    .program__item:nth-child(3) {
+      margin-right: 63px;
+    }
+    .program__item:nth-child(5) {
+      margin-right: 243px;
+    }
+  }   
+
+  @media (max-width: 670px) {
+    .program__item:nth-child(1) {
+      margin-right: 62px;
+    }
+    .program__item:nth-child(2) {
+      margin-right: 39px;
+    }
+    .program__item:nth-child(4) {
+      margin-right: 39px;
+    }
+    
+  }  
+  @media (max-width: 456px) {
+    .program__item:nth-child(1) {
+      margin-right: 22px;
+    }
+    .program__item:nth-child(3) {
+      margin-right: 22px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .program__item:nth-child(5) {
+      margin-right: 22px;
+    }
+  }
+
+  @media (max-width: 406px) {
+    .program__item:nth-child(1) {
+      margin-right: 3px;
+    }
+    .program__item:nth-child(3) {
+      margin-right: 3px;
+    }
+  }
+  @media (max-width: 385px) {
+    .program__item:nth-child(2) {
+      margin-right: 3px;
+    }
+    .program__item:nth-child(4) {
+      margin-right: 3px;
+    }
+  }
+  
+  
 
   .portfolio {
     background-color: #F6F6F6;
