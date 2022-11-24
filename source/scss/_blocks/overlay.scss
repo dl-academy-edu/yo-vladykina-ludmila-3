@@ -8,8 +8,16 @@
     left: 0;
     display: none;
     z-index: 2;
+
+    @media (max-width: 687px) {
+        background: #FFFFFF;
+
+    }
+
     
     &_open {
         display: block;
     }
+    
+    
 }

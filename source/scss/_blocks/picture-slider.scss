@@ -3,13 +3,22 @@
 
   &__wrapper {
       max-width: 1000px;      
-      overflow: hidden;     
+      overflow: hidden; 
+
+      @media (max-width: 769px) {
+        max-width: 648px; 
+        margin-left: 17px;
+    }   
+      @media (max-width: 376px) {
+        max-width: 280px;         
+    }   
+
   }     
 
   &__container {
       display: flex;
       flex-direction: row;      
-      margin: 0 0 30px;      
+      margin: 0 0 30px;        
   }
 
   &__slide {

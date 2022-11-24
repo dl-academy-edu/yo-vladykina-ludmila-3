@@ -25,7 +25,7 @@
         margin: 0;
         padding: 0;
 
-        @media (max-width: 376px) {
+        @media (max-width: 716px) {
             margin-bottom: 25px;
             margin-right: 61px;
         }
@@ -194,7 +194,7 @@
             width: 77%;
         }
 
-        @media (max-width: 376px) {
+        @media (max-width: 716px) {
            margin-bottom: 25px;
            width: 98%;
         }
@@ -276,7 +276,7 @@
         order: 5;
         
     }  
-    @media (max-width: 376px) {
+    @media (max-width: 716px) {
         margin-left: 5px;
         margin-right: -6px;    
         margin-bottom: 0px;
@@ -289,7 +289,7 @@
               order: 2;
               margin-right: 45px;
         }
-        @media (max-width: 376px) {
+        @media (max-width: 716px) {
             margin-right: 25px;
           }
 }
@@ -306,7 +306,7 @@
     @media (max-width: 1265px) {
             order: 4;
     }
-    @media (max-width: 376px) {
+    @media (max-width: 716px) {
         margin-right: 43px;
       }
 }
@@ -316,6 +316,8 @@
         order: 3;
         margin-right: 45px;
       }
+      
+
 
      
 
@@ -325,21 +327,51 @@
 .reset {
     @media (max-width: 1265px) {
         order: 6;
-        margin-right: 370px;
+        margin-right: 300px;
         margin-top: 20px;
     }
 
-    @media (max-width: 376px) {
+    @media (max-width: 725px) {
         margin-left: 23px;
-        margin-right: 55px;
+        margin-right: 309px;
         margin-top: 1px;
     }
+    @media (max-width: 677px) {        
+        margin-right: 0px;
+      }
+      @media (max-width: 489px) {        
+        margin-right: 36px;
+      }
 }
 
 .submit {
 
-    @media (max-width: 376px) {
-        margin-left: 222px;
+    @media (max-width: 716px) {
+        margin-left: 500px;
+    }
+    @media (max-width: 678px) {
+        margin-left: 470px;
+    }
+    @media (max-width: 629px) {
+        margin-left: 426px;
+    }
+    @media (max-width: 579px) {
+        margin-left: 382px;
+    }
+    @media (max-width: 530px) {
+        margin-left: 343px;
+    }
+    @media (max-width: 490px) {
+        margin-left: 313px;
+    }
+    @media (max-width: 457px) {
+        margin-left: 282px;
+    }
+    @media (max-width: 422px) {
+        margin-left: 250px;
+    }
+    @media (max-width: 389px) {
+        margin-left: 215px;
     }
    
 }

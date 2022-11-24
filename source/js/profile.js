@@ -1,27 +1,3 @@
-// button-fixed
-
-(function buttonScrollFixed() {
-    let buttonScroll = document.querySelector(".button-scroll_js");
-
-    if (buttonScroll) {
-        
-        buttonScroll.addEventListener('click', function () {
-            window.scrollTo({ 
-                top: 0, 
-                behavior: "smooth" 
-            });
-        });
-        
-        window.addEventListener('scroll', function () {
-            if (window.pageYOffset > 1500) {
-            buttonScroll.classList.remove("button-fixed__hidden");
-            } else {
-            buttonScroll.classList.add("button-fixed__hidden");
-            }
-        });
-    };
-})();
-
 
 // модалки
 const popup = document.querySelector('.popup');
@@ -33,14 +9,11 @@ const preloader = document.querySelector('.preloader');
 
 const registerForm = document.forms.registerForm;
 const signInForm = document.forms.signInForm;
-const sendMessageForm = document.forms.sendMessageForm;
-
 const requiredRegister = registerForm.elements.required;
-const requiredSendMessage = sendMessageForm.elements.required;
+
 
 const buttonRegister = registerForm.querySelector('.button-reg-js');
 const buttonSignIn = signInForm.querySelector('.button-signIn-js');
-const buttonSendMessage = sendMessageForm.querySelector('.button-sendMessage-js');
 updateHeaderLinks();
 
 // Вход пользователя
@@ -143,7 +116,6 @@ updateHeaderLinks();
                 return response.json();
             } else {               
                 throw new Error('Что-то пошло не так');
-                
             }
         })
         .then(response => {
@@ -160,68 +132,6 @@ updateHeaderLinks();
 
     registerForm.addEventListener('submit', (e) => {
         register(e);
-    });
-})();
-
-
-// Отправка сообщения
-(function sendMessage() {
-    const popupOpenSend = document.querySelector('.button_send-js');
-    const popupFormSend = document.querySelector('.popup_send');
-    const popupCloseSend = document.querySelector('.popup_close_send-js');
-    const inputSend = popupFormSend.querySelector('input');
-    const preloaderSendMessage = popupFormSend.querySelector('.sendMessage-preloader-js');
-
-    popupOpenSend.addEventListener('click', function () {
-        closePreloader(preloaderSendMessage);
-        togglePopup(popupFormSend);
-        inputSend.focus();
-    });
-
-    popupCloseSend.addEventListener('click', function () {
-        togglePopup(popupFormSend);
-    });
-
-    // Форма отправки сообщений
-    disableButton(buttonSendMessage, requiredSendMessage);
-
-    function sendMessage(e) {
-        e.preventDefault();
-        openPreloader(preloaderSendMessage);
-        const sendMessageData = getValueForm(sendMessageForm);
-        const data = {
-            to: sendMessageData.email,
-            body: JSON.stringify(sendMessageData),
-        };
-        sendRequestFetch({
-            method: 'POST',
-            url: '/api/emails',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-            },
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Что-то пошло не так');
-            }
-        })
-        .then(response => {
-            alert('Вы успешно отправили письмо!');
-            togglePopup(popupFormSend);
-            closePreloader(preloaderSendMessage);
-        })
-        .catch(err => {
-            alert(err);
-            e.target.reset();
-            closePreloader(preloaderSendMessage);
-        });
-    }
-
-    sendMessageForm.addEventListener('submit', (e) => {
-        sendMessage(e);
     });
 })();
 
@@ -311,6 +221,254 @@ window.addEventListener('keydown', e => {
         }  
 });
 
+// Выход из аккаунта
+const buttonSignOut = document.querySelector('.button-signOut-js');
+
+function signOut() {
+    if(confirm('выйти из аккаунта?')) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        location.pathname = '/';
+    }
+}
+
+buttonSignOut.addEventListener('click', () => {
+    signOut()
+});
+
+// Профиль
+const changePasswordForm = document.forms.changePasswordForm;
+const changeDataForm = document.forms.changeDataForm;
+
+const profileImg = document.querySelector('.user-img-js');
+const profileName = document.querySelector('.user-name-js');
+const profileSurname = document.querySelector('.user-surname-js');
+const profileEmail = document.querySelector('.user-email-js');
+const profilePassword = document.querySelector('.user-password-js');
+const profileLocation = document.querySelector('.user-location-js');
+const profileAge = document.querySelector('.user-age-js');
+let profile = {};
+
+// Выставление данных аккаунта пользователя в профайл при загрузке страницы
+getProfile();
+
+// смена ссылок при авторизации по токену
+updateHeaderLinks();
+
+// получение профиля на странице
+function renderProfile() {
+    profileImg.style.backgroundImage = `url(${server + profile.photoUrl})`;
+    profileName.innerText = profile.name;
+    profileSurname.innerText = profile.surname;
+    profileEmail.innerText = profile.email; 
+    profilePassword.innerText = '***************'   
+    profileLocation.innerText = profile.location;
+    profileAge.innerText = profile.age;
+}
+
+// подставление актуальных данных аккаунта в форму смены данных
+function setDateToFormChangeData() {
+    changeDataForm.name.value = profile.name;
+    changeDataForm.surname.value = profile.surname;
+    changeDataForm.email.value = profile.email;    
+    changeDataForm.location.value = profile.location;
+    changeDataForm.age.value = profile.age;
+}
+
+function getProfile() {
+    openPreloader(preloader);
+    sendRequestFetch({
+        method: 'GET',
+        url: `/api/users/${localStorage.getItem('userId')}`,
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Что-то пошло не так!')
+        }
+    })
+    .then(response => {
+        profile = response.data
+        renderProfile();
+        closePreloader(preloader);
+        
+    })
+    .catch(err => {
+        alert(err);
+        closePreloader(preloader);
+        location.pathname = '/'
+    })
+}
+
+// Форма пароля
+const popupOpenChangePassword = document.querySelector('.button_change-pass-js');
+const popupChangePassword = document.querySelector('.popup_change-pass');
+const popupCloseChangePassword = document.querySelector('.popup_close-change-pass-js');
+const inputChangePassword = popupChangePassword.querySelector('input');
+const preloaderChangePassword =popupChangePassword.querySelector('.change-password-preloader-js');
+
+popupOpenChangePassword.addEventListener('click', function () {
+    closePreloader(preloaderChangePassword);
+    togglePopup(popupChangePassword);
+    inputChangePassword.focus();
+    
+});
+
+popupCloseChangePassword.addEventListener('click', function () {
+    togglePopup(popupChangePassword);
+});
+
+// Смена пароля
+function changePassword(e) {
+    e.preventDefault();
+    openPreloader(preloaderChangePassword);
+    const changePassword = getValueForm(changePasswordForm);
+    sendRequestFetch({
+        method: 'PUT',
+        url: '/api/users',
+        body: JSON.stringify(changePassword),
+        headers: {
+            'x-access-token': localStorage.getItem('token'),
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else if (response.status === 401 || response.status === 403) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            location.pathname = '/';
+            return;
+        } else {
+            throw new Error('Что-то пошло не так!');
+        }
+    })
+    .then(response => {
+        alert('Вы успешно поменяли пароль!');
+        profile = response.data;
+        renderProfile();
+        togglePopup(popupChangePassword);
+        closePreloader(preloaderChangePassword);
+    })
+    .catch(err => {
+        alert(err);
+        togglePopup(popupChangePassword);
+        closePreloader(preloaderChangePassword);
+    })
+}
+
+changePasswordForm.addEventListener('submit', (e) => {
+    changePassword(e)
+})
+
+// Форма данных
+const popupOpenChangeData = document.querySelector('.button_change-data-js');
+const popupFormChangeData = document.querySelector('.popup_change-data');
+const popupCloseChangeData = document.querySelector('.popup_close-change-data-js');
+const inputChangeData = popupFormChangeData.querySelector('input');
+const preloaderChangeData = popupFormChangeData.querySelector('.change-data-preloader-js');
+
+popupOpenChangeData.addEventListener('click', function () {
+    setDateToFormChangeData();
+    closePreloader(preloaderChangeData);
+    togglePopup(popupFormChangeData);
+    inputChangeData.focus();
+    
+});
+
+popupCloseChangeData.addEventListener('click', function () {    
+    togglePopup(popupFormChangeData);    
+});
+
+// смена данных
+
+function changeData(e) {
+    e.preventDefault();
+    openPreloader(preloaderChangeData);
+    const changeData = new FormData(changeDataForm);
+    sendRequestFetch({
+        method: 'PUT',
+        url: '/api/users',
+        body: changeData,
+        headers: {
+            'x-access-token': localStorage.getItem('token'),
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else if (response.status === 401 || response.status === 403) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');           
+            location.pathname = '/';
+            return;
+        } else {
+            throw new Error('Что-то пошло не так!');
+        }
+    })
+    .then(response => {
+        alert('Данные успешно изменены!');         
+        profile = response.data;
+        renderProfile();
+        togglePopup(popupFormChangeData);
+        closePreloader(preloaderChangeData);
+        
+    })
+    .catch(err => {       
+        alert(err);
+        closePreloader(preloaderChangeData);
+    })
+}
+
+changeDataForm.addEventListener('submit', (e) => {
+    changeData(e);
+   
+});
+
+
+// Удаление аккаунта
+const buttonDeleteAccount = document.querySelector('.button-delete-js');
+
+function deleteAccount() {
+    if (confirm ('Удалить аккаунт?')) {
+        sendRequestFetch({
+            method: 'DELETE',
+            url: `/api/users/${localStorage.getItem('userId')}`,
+            headers: {
+                'x-access-token': localStorage.getItem('token'),
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else if (response.status === 401 || response.status === 403) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('userId');
+                location.pathname = '/';
+                return;
+            } else {
+                throw new Error('Что-то пошло не так!');
+            }
+        })
+        .then(response => {
+            alert('Ваш аккаунт был успешно удален');
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
+            location.pathname = '/';
+        })
+        .catch(err => {
+            alert(err);
+        })
+    }
+}
+
+buttonDeleteAccount.addEventListener('click', () => {
+    deleteAccount()
+})
+
+
 //Функция теста email
 function emailValid(email) {   
     let error = 0
@@ -324,7 +482,7 @@ function emailValid(email) {
             }
             let errorEmail = emailValid(el)
             if (errorEmail === false) {
-                el.classList.add('form__input_bad')
+                el.classList.add('custom-input_bad')
                 el.insertAdjacentHTML('afterend', '<p class="input-caption input-caption_bad">Please enter a valid email address (your entry is not in the format "somebody@example.com")</p>')
                 error++
             }
@@ -345,10 +503,11 @@ function ageValidation (form) {
     let input = form.querySelector('.form__input-age')
     if (input.value !== '') {
         if (input.value < 20) {
-            input.classList.add('form__input_bad')
+            input.classList.add('custom-input_bad')
             input.insertAdjacentHTML('afterend', '<p class="input-caption input-caption_bad">Your age is under 20</p>')
             error++
         }
     }
     return error
 }
+
